@@ -28,6 +28,9 @@
     <Filter Include="源文件\PBD">
       <UniqueIdentifier>{8436575e-33bf-4ce5-b4e8-8c3ee74820a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\utilities">
+      <UniqueIdentifier>{bb8b9820-e18e-4f2e-b0db-6b951d13ae89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -51,9 +54,6 @@
     <ClInclude Include="Unity\IUnityInterface.h">
       <Filter>头文件\Unity</Filter>
     </ClInclude>
-    <ClInclude Include="cuda_include.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="log.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -72,14 +72,24 @@
     <ClInclude Include="factory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="common.cuh">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClInclude Include="PBD\cloth_solver.cuh" />
     <ClInclude Include="helper_cuda.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="helper_math.h">
+      <Filter>头文件\utilities</Filter>
     </ClInclude>
     <ClInclude Include="helper_string.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda_include.h">
+      <Filter>头文件\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>头文件\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="common.cuh">
+      <Filter>头文件\utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -112,5 +122,6 @@
     <CudaCompile Include="PBD\sample_kernels.cu">
       <Filter>源文件\PBD</Filter>
     </CudaCompile>
+    <CudaCompile Include="PBD\cloth_solver.cu" />
   </ItemGroup>
 </Project>
