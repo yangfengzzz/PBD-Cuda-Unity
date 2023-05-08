@@ -6,7 +6,6 @@
 #include <map>
 #include <memory>
 
-class Texture;
 class VertexBuffer;
 
 enum class ErrorBehavior
@@ -26,27 +25,6 @@ extern "C"
      * @return     True if supported, False otherwise.
      */
     UNITY_INTERFACE_EXPORT bool IsSupported();
-
-    /**
-     * @brief      Create a texture object for interoperability from a texture
-     * pointer of unity
-     *
-     * @param[in]  textureHandle  A pointer of texture with float4 that has
-     * been generated with Unity (see function GetNativeTexturePtr
-     * https://docs.unity3d.com/ScriptReference/Texture.GetNativeTexturePtr.html)
-     *
-     * @param[in]  width  the width of the texture
-     *
-     * @param[in]  width  the height of the texture
-     *
-     * @param[in]  depth  depth of 0 or 1 are equivalent to a simple texture 2D
-     * when it greater than 1 it will be a texture 2D array
-     *
-     * @return     The texture that has been created
-     */
-    UNITY_INTERFACE_EXPORT Texture *CreateTextureInterop(void *textureHandle,
-                                                         int w, int h,
-                                                         int depth);
 
     /**
      * @brief      Create a vertex buffer object for interoperability from a

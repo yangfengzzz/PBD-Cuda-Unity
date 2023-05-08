@@ -80,10 +80,6 @@ extern "C"
         s_UnityInterfaces = unityInterfaces;
 
         s_Graphics = s_UnityInterfaces->Get<IUnityGraphics>();
-
-        s_Graphics->RegisterDeviceEventCallback(OnGraphicsDeviceEvent);
-
-        OnGraphicsDeviceEvent(kUnityGfxDeviceEventInitialize);
     }
 
     /// <summary>
