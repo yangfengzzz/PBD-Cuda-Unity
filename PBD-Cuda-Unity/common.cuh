@@ -8,7 +8,7 @@
 
 #include <tuple>
 
-#include <cuda_runtime.h> 
+#include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 #include <device_launch_parameters.h>
 #include "helper_cuda.h"
@@ -22,7 +22,7 @@
 #define GET_CUDA_ID_NO_RETURN(id, maxID) 	uint id = blockIdx.x * blockDim.x + threadIdx.x
 #define EPSILON					1e-6f
 
-#ifdef __CUDACC__ 
+#ifdef __CUDACC__
 #define CUDA_CALL(func, totalThreads)  \
 	if (totalThreads == 0) return; \
 	uint func ## _numBlocks, func ## _numThreads; \
@@ -43,34 +43,34 @@
 
 namespace vox
 {
-	typedef unsigned int uint;
+    typedef unsigned int uint;
 
-	const uint BLOCK_SIZE = 256;
+    const uint BLOCK_SIZE = 256;
 
-	inline void ComputeGridSize(const uint& n, uint& numBlocks, uint& numThreads)
-	{
-		if (n == 0)
-		{
-			//fmt::print("Error(Solver): numParticles is 0\n");
-			numBlocks = 0;
-			numThreads = 0;
-			return;
-		}
-		numThreads = std::min(n, BLOCK_SIZE);
-		numBlocks = (n % numThreads != 0) ? (n / numThreads + 1) : (n / numThreads);
-	}
+    inline void ComputeGridSize(const uint& n, uint& numBlocks, uint& numThreads)
+    {
+        if (n == 0)
+        {
+            //fmt::print("Error(Solver): numParticles is 0\n");
+            numBlocks = 0;
+            numThreads = 0;
+            return;
+        }
+        numThreads = std::min(n, BLOCK_SIZE);
+        numBlocks = (n % numThreads != 0) ? (n / numThreads + 1) : (n / numThreads);
+    }
 
-	template<class T>
-	inline T* VtAllocBuffer(size_t elementCount)
-	{
-		T* devPtr = nullptr;
-		checkCudaErrors(cudaMallocManaged((void**)&devPtr, elementCount * sizeof(T)));
-		cudaDeviceSynchronize(); // this is necessary, otherwise realloc can cause crash
-		return devPtr;
-	}
+    template <class T>
+    inline T* VtAllocBuffer(size_t elementCount)
+    {
+        T* devPtr = nullptr;
+        checkCudaErrors(cudaMallocManaged((void**)&devPtr, elementCount * sizeof(T)));
+        cudaDeviceSynchronize(); // this is necessary, otherwise realloc can cause crash
+        return devPtr;
+    }
 
-	inline void VtFreeBuffer(void* buffer)
-	{
-		checkCudaErrors(cudaFree(buffer));
-	}
+    inline void VtFreeBuffer(void* buffer)
+    {
+        checkCudaErrors(cudaFree(buffer));
+    }
 }
