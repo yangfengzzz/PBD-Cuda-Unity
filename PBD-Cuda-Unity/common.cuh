@@ -8,10 +8,13 @@
 
 #include <tuple>
 
+#include <glm/glm.hpp>
+
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 #include <device_launch_parameters.h>
 #include "helper_cuda.h"
+#include "helper_math.h"
 
 #include <thrust/device_ptr.h>
 #include <thrust/transform.h>
@@ -45,7 +48,12 @@ namespace vox
 {
     typedef unsigned int uint;
 
-    const uint BLOCK_SIZE = 256;
+    constexpr uint BLOCK_SIZE = 256;
+
+    __device__ inline float length2(glm::vec3 vec)
+    {
+        return glm::dot(vec, vec);
+    }
 
     inline void ComputeGridSize(const uint& n, uint& numBlocks, uint& numThreads)
     {
