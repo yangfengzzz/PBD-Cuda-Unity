@@ -22,6 +22,12 @@
     <Filter Include="头文件\Buffer">
       <UniqueIdentifier>{3c584a73-562b-45bf-bbba-3efa6d7c8476}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\PBD">
+      <UniqueIdentifier>{8ee6edfc-7c35-4f37-bb5b-5e62d6accbfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\PBD">
+      <UniqueIdentifier>{8436575e-33bf-4ce5-b4e8-8c3ee74820a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -51,6 +57,21 @@
     <ClInclude Include="log.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="PBD\action_sample_vertex_buffer.h">
+      <Filter>头文件\PBD</Filter>
+    </ClInclude>
+    <ClInclude Include="PBD\sample_kernels.cuh">
+      <Filter>头文件\PBD</Filter>
+    </ClInclude>
+    <ClInclude Include="PBD\action.h">
+      <Filter>头文件\PBD</Filter>
+    </ClInclude>
+    <ClInclude Include="unity_plugin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="factory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -68,5 +89,19 @@
     <ClCompile Include="log.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PBD\action_sample_vertex_buffer.cpp">
+      <Filter>源文件\PBD</Filter>
+    </ClCompile>
+    <ClCompile Include="factory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unity_plugin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="PBD\sample_kernels.cu">
+      <Filter>源文件\PBD</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

@@ -146,24 +146,35 @@
     <ClInclude Include="Buffer\vertex_buffer.h" />
     <ClInclude Include="Buffer\vertex_buffer_D3D11.h" />
     <ClInclude Include="cuda_include.h" />
+    <ClInclude Include="factory.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="log.h" />
+    <ClInclude Include="PBD\action.h" />
+    <ClInclude Include="PBD\action_sample_vertex_buffer.h" />
+    <ClInclude Include="PBD\sample_kernels.cuh" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Unity\IUnityGraphics.h" />
     <ClInclude Include="Unity\IUnityGraphicsD3D11.h" />
     <ClInclude Include="Unity\IUnityInterface.h" />
+    <ClInclude Include="unity_plugin.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Buffer\vertex_buffer.cpp" />
     <ClCompile Include="Buffer\vertex_buffer_D3D11.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="factory.cpp" />
     <ClCompile Include="log.cpp" />
+    <ClCompile Include="PBD\action_sample_vertex_buffer.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="unity_plugin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="PBD\sample_kernels.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
