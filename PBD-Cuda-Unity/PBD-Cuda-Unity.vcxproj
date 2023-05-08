@@ -73,6 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -145,9 +146,12 @@
   <ItemGroup>
     <ClInclude Include="Buffer\vertex_buffer.h" />
     <ClInclude Include="Buffer\vertex_buffer_D3D11.h" />
+    <ClInclude Include="common.cuh" />
     <ClInclude Include="cuda_include.h" />
     <ClInclude Include="factory.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="helper_cuda.h" />
+    <ClInclude Include="helper_string.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="PBD\action.h" />
     <ClInclude Include="PBD\action_sample_vertex_buffer.h" />
